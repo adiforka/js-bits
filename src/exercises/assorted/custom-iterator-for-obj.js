@@ -5,7 +5,7 @@ const myObj = {
   married: true,
   loser: false,
   walkingContradiction: true
-};
+}
 
 // throws error, since object in question is not iterable
 // for (let prop of myObj) {
@@ -16,22 +16,23 @@ const myObj = {
 // Symbol.iterator is a public designation of an internal @@iterator method, see:
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols
 myObj[Symbol.iterator] = function () {
-  const objKeys = Object.keys(this);
-  let counter = -1;
+  const objKeys = Object.keys(this)
+  let counter = -1
   return {
     next: () => {
-      counter++;
-      return (counter < objKeys.length) ?
-        {
-          value: this[objKeys[counter]],
-          done: false
-        } : {
-          done: true
-        };
+      counter++
+      return counter < objKeys.length
+        ? {
+            value: this[objKeys[counter]],
+            done: false
+          }
+        : {
+            done: true
+          }
     }
-  };
-};
+  }
+}
 
 for (let prop of myObj) {
-  console.log(prop);
+  console.log(prop)
 }
