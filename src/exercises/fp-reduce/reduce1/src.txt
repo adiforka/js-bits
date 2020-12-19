@@ -1,0 +1,6 @@
+richie_sambora waffle_iron  80  2
+richie_sambora blender  200  1
+richie_sambora rambo_knife  399  1
+brother_jack waffle_iron 80 1
+brother_jack rambo_knife 399 2
+brother_jack kettle 99 1

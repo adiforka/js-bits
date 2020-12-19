@@ -1,0 +1,3 @@
+mads mikkelsen	antagonist	1	cute BB
+norman reedus	protagonist	0	none
+amelie jeronimo	supporting character	0	none
