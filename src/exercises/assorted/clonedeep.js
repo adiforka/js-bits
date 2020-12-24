@@ -3,16 +3,16 @@
 // interesting to see what objects are not instances of "Object":
 // Object.prototype, and any object created with Object.create(null)
 
-const deepclone = original => {
-  const copy = {}
-  const keys = Object.keys(original)
-  for (let key of keys) {
-    copy[key] = original[key]
-    if (copy[key] && typeof copy[key] === object) {
-      copy[key] = deepclone(copy[key])
+const cloneDeep = source => {
+  const target = {}
+  for (const p in source) {
+    target[p] = source[p]
+    //typeof null, sitting at the top of the object prototypical hierarchy, is also 'object
+    if (target[p] !== null && typeof target[p] === 'object') {
+      target[p] = cloneDeep(target[p])
     }
   }
-  return copy
+  return target
 }
 
 const nestedObject = {
@@ -29,7 +29,11 @@ const nestedObject = {
   age: 45
 }
 
-const clone = deepclone(nestedObject)
-nestedObject.addresses.physicalAddress.street = 'xxxxxxxxxxxxxxx'
+const clone = cloneDeep(nestedObject)
+
 console.log(clone)
-console.log(nestedObject)
+//change the value on the original
+nestedObject.addresses.physicalAddress.street = 'xxxxxxxxxxxxxxx'
+// the street on the address on the clone shoudl remain unchanged when the value
+// of the same prop on the original changes
+console.log(clone)
