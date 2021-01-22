@@ -14,16 +14,19 @@ function mode(...args: Array<number>) {
   }
 
   let max = -Infinity;
-  const entries = Object.entries(counts);
-  let modes = [];
+  // entries is a matrix storing pairs the original elements and their occurrences
+  const entries: [string, number][] = Object.entries(counts);
+  // let the compiler know that even though the array is empty,
+  // we do want to store numbers in it later
+  let modes = [] as number[];
 
-  for (let item of entries) {
-    if (item[1] > max) {
-      max = item[1];
+  for (let [value, count] of entries) {
+    if (count > max) {
+      max = count;
       modes = [];
-      modes.push(+item[0]);
-    } else if (item[1] === max) {
-      modes.push(+item[0]);
+      modes.push(+value);
+    } else if (count === max) {
+      modes.push(+value);
     } else continue;
   }
 
