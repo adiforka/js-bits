@@ -1,7 +1,7 @@
 // a function that accepts a construct signature and returns a configured object,
 // having called the target constructor in its body
-function configureObject(
-  constructor: new (...args: any[]) => any,
+function configureObject<T extends object>(
+  constructor: new (...args: any[]) => T,
   ...args: any[]
 ) {
   return new constructor(...args)
