@@ -2,26 +2,26 @@
 // exmple #1
 let collectData = (name: string) => {
   return (age: number) => {
-    return (pob: string) => `${name} is ${age} years old, and he's from ${pob}`;
-  };
-};
+    return (pob: string) => `${name} is ${age} years old, and he's from ${pob}`
+  }
+}
 
-const result = collectData("jimmy")(45)("NYC");
+const result = collectData("jimmy")(45)("NYC")
 
 // example #2
 function apply(a: any, b: any, c: any) {
-  return a + b + c;
+  return a + b + c
 }
 
 function curriedApply(fn: (x: number, y: number, z: number) => number) {
   return function (a: number) {
     return function (b: any) {
       return function (c: any) {
-        return fn(a, b, c);
-      };
-    };
-  };
+        return fn(a, b, c)
+      }
+    }
+  }
 }
 
-const result2 = curriedApply(apply)(45)(48)(34);
-console.log(result2);
+const result2 = curriedApply(apply)(45)(48)(34)
+console.log(result2)
