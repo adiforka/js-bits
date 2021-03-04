@@ -1,3 +1,4 @@
+// using an object to store results for n values
 type ResultCache = { [idx: string]: number }
 
 function factorial(n: number, resultCache: ResultCache = {}) {
@@ -10,6 +11,3 @@ function factorial(n: number, resultCache: ResultCache = {}) {
     return resultCache["n"] * n
   }
 }
-
-const factorialResult = factorial(4)
-console.log(factorialResult)
