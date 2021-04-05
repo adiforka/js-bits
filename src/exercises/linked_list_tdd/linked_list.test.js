@@ -1,4 +1,4 @@
-const LinkedList = require('./linked-list');
+const LinkedList = require('./linked_list');
 
 describe('#insertAtHead', () => {
   test('adds an element to the start of the list', () => {
