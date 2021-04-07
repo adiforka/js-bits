@@ -33,11 +33,7 @@ function checkNum(n, from, to) {
   const nStr = String(n)
   const matchResult = nStr.match(/[0-9]+/)
 
-  if (matchResult === null || n < from || n > to) {
-    return false
-  } else {
-    return true
-  }
+  return matchResult !== null && n >= from && n <= to
 }
 
 playGuessingGame(1, 10)
