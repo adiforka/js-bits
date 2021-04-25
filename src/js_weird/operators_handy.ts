@@ -3,7 +3,7 @@ let obj = { name: "Sandy" }
 // obj = undefined; // using undefined explicitly for example purposes only
 // obj = null;
 
-const firstName = obj && obj.name
+const firstName = richie && richie.name
 console.log(firstName)
 
 // lazily getting data: if falsy value or no value cached, only then perform the op to get data

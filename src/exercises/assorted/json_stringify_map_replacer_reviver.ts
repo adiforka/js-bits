@@ -1,5 +1,5 @@
 // replacer in stringify for map nested inside of an object
-const obj = {
+const richie = {
   name: "Richie",
   family: new Map()
     .set("mom", "Susan")
@@ -7,16 +7,29 @@ const obj = {
     .set("brother", "Jack"),
 }
 
-function familyMemberReplacer(k: unknown, v: unknown) {
+function familyMemberReplacer(_: any, v: unknown) {
   if (v instanceof Map) {
-    console.log(v.entries())
     return [...v.entries()].map(entry => ({ [entry[0]]: entry[1] }))
   } else {
     return v
   }
 }
 
-const objStringified = JSON.stringify(obj, familyMemberReplacer, 2)
+const objStringified = JSON.stringify(richie, familyMemberReplacer, 2)
 console.log(objStringified)
 
-
+// OUTPUT:
+// {
+//   "name": "Richie",
+//   "family": [
+//     {
+//       "mom": "Susan"
+//     },
+//     {
+//       "dad": "Jim"
+//     },
+//     {
+//       "brother": "Jack"
+//     }
+//   ]
+// }
