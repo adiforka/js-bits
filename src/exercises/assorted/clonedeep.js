@@ -1,7 +1,9 @@
-// used instance of before to check what property values on the
+// used instanceof before to check what property values on the
 // cloned object were themselves objects (and so also needed cloning)
 // interesting to see what objects are not instances of "Object":
 // Object.prototype, and any object created with Object.create(null)
+
+//!! won't work with arrays, maps, set (tweaky tweakster needed)
 
 const cloneDeep = source => {
   const target = {}
