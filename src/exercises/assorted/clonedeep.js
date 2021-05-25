@@ -3,7 +3,7 @@
 // interesting to see what objects are not instances of "Object":
 // Object.prototype, and any object created with Object.create(null)
 
-//!! won't work with arrays, maps, set (tweaky tweakster needed)
+//!! won't work with arrays, maps, sets (tweaky tweakster needed)
 
 const cloneDeep = source => {
   const target = {}
